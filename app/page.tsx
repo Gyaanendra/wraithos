@@ -32,7 +32,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 className="bg-[#369CF3] hover:bg-[#369CF3]/80 text-white px-8 py-6 relative z-20"
-                onClick={() => window.open("https://github.com/Gyaanendra/wraithos/releases/latest", "_blank")}
+                onClick={() => window.open("https://drive.google.com/file/d/1CEAedc23ggH43wmVG24HAIo6b2nmiyr-/view?usp=sharing", "_blank")}
               >
                 Download Now
               </Button>
@@ -186,7 +186,8 @@ export default function Home() {
           </ScrollAnimation>
           
           <ScrollAnimation type="fade" direction="up" delay={0.4}>
-            <Button className="bg-[#369CF3] hover:bg-[#369CF3]/80 text-white px-8 py-6 text-lg">
+            <Button className="bg-[#369CF3] hover:bg-[#369CF3]/80 text-white px-8 py-6 text-lg" 
+            onClick={() => window.open("https://drive.google.com/file/d/1CEAedc23ggH43wmVG24HAIo6b2nmiyr-/view?usp=sharing", "_blank")}>
               Download WraithFlash
             </Button>
           </ScrollAnimation>
