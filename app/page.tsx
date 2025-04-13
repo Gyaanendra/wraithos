@@ -62,7 +62,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <ScrollAnimation type="fade" direction="up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-              About <span className="text-[#369CF3]">WraithOS</span>
+              About <span className="text-[#369CF3]">WraithFlash</span>
             </h2>
           </ScrollAnimation>
           
@@ -71,7 +71,7 @@ export default function Home() {
               <div className="bg-[#0A0A0A]/70 backdrop-blur-sm p-6 rounded-lg border border-[#369CF3]/20 shadow-lg shadow-[#369CF3]/5">
                 <h3 className="text-2xl font-semibold text-[#369CF3] mb-4">Our Mission</h3>
                 <p className="text-gray-300">
-                  WraithOS was created with a simple mission: to extend the life of older hardware through
+                  WraithFlash was created with a simple mission: to extend the life of older hardware through
                   efficient software design. We believe that technology should be accessible to everyone,
                   regardless of their ability to purchase the latest hardware.
                 </p>
@@ -175,13 +175,13 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <ScrollAnimation type="fade" direction="up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to <span className="text-[#369CF3]">Try WraithOS</span>?
+              Ready to <span className="text-[#369CF3]">Try WraithFlash</span>?
             </h2>
           </ScrollAnimation>
           
           <ScrollAnimation type="fade" direction="up" delay={0.2}>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-              Download WraithOS today and experience the perfect balance of performance and usability.
+              Download WraithFlash today and experience the perfect balance of performance and usability.
             </p>
           </ScrollAnimation>
           
