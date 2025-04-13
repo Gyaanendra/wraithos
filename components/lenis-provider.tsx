@@ -10,13 +10,13 @@ interface LenisProviderProps {
 export default function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0,
+      easing: (t) => t, // Linear easing (no animation)
       direction: "vertical",
       gestureDirection: "vertical",
-      smooth: true,
+      smooth: false, // Disable smooth scrolling
       smoothTouch: false,
-      touchMultiplier: 2,
+      touchMultiplier: 1,
     })
 
     function raf(time: number) {

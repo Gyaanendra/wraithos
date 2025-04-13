@@ -2,7 +2,11 @@
 
 import { useEffect, useRef } from "react"
 
-const MatrixBackground = () => {
+interface MatrixBackgroundProps {
+  delay?: number
+}
+
+const MatrixBackground = ({ delay = 0 }: MatrixBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -47,35 +51,54 @@ const MatrixBackground = () => {
       for (let i = 0; i < drops.length; i++) {
         // Random character
         const text = characters.charAt(Math.floor(Math.random() * characters.length))
-
-        // x coordinate of the drop
+        
+        // x coordinate of the character (column * fontSize)
         const x = i * fontSize
-        // y coordinate of the drop
+        
+        // y coordinate of the character (drops[i] * fontSize)
         const y = drops[i] * fontSize
-
+        
         // Draw the character
         ctx.fillText(text, x, y)
-
-        // Randomly reset some drops to the top
-        if (y > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0
-        }
-
+        
         // Move the drop down
         drops[i]++
+        
+        // Reset the drop when it reaches the bottom
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0
+        }
       }
     }
 
-    // Animation loop
-    const interval = setInterval(draw, 50)
+    // Delay the animation start if specified
+    let animationId: number
+    const startAnimation = () => {
+      const animate = () => {
+        draw()
+        animationId = requestAnimationFrame(animate)
+      }
+      animate()
+    }
+
+    if (delay) {
+      setTimeout(startAnimation, delay)
+    } else {
+      startAnimation()
+    }
 
     return () => {
-      clearInterval(interval)
+      cancelAnimationFrame(animationId)
       window.removeEventListener("resize", resizeCanvas)
     }
-  }, [])
+  }, [delay])
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full z-0 opacity-40" />
+  return (
+    <canvas 
+      ref={canvasRef} 
+      className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
+    />
+  )
 }
 
 export default MatrixBackground

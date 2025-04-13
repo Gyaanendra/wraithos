@@ -25,10 +25,8 @@ const Navbar = () => {
     const targetId = href.replace('#', '')
     const element = document.getElementById(targetId)
     if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 70, // Adjust for navbar height
-        behavior: 'smooth'
-      })
+      // Simple jump to element without smooth behavior
+      window.scrollTo(0, element.offsetTop - 70)
       if (isMenuOpen) setIsMenuOpen(false)
     }
   }
@@ -39,7 +37,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-[#369CF3]">WraithOS</span>
+              <span className="text-2xl font-bold text-[#369CF3]">WraithFlash</span>
             </Link>
           </div>
 
@@ -88,7 +86,6 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            // And also update the mobile menu GitHub button
             <div className="pt-2 mt-2 border-t border-[#369CF3]/20">
               <Button
                 variant="outline"

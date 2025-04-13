@@ -13,11 +13,11 @@ export default function Home() {
       <MatrixBackground delay={1500} />
       
       {/* Hero Section */}
-      <section id="home" className="w-full min-h-screen flex items-center justify-center pt-16 bg-gradient-to-b from-[#010102] to-[#030308]">
+      <section id="home" className="w-full min-h-screen flex items-center justify-center pt-16 bg-gradient-to-b from-[#010102]/70 to-[#030308]/70 relative z-10">
         <div className="container mx-auto px-4 py-16 flex flex-col items-center text-center">
           <ScrollAnimation type="fade" direction="up" delay={0.2}>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Welcome to <span className="text-[#369CF3]">WraithOS</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+              Welcome to <span className="text-[#369CF3] font-extrabold">WraithFlash</span>
             </h1>
           </ScrollAnimation>
           
@@ -30,10 +30,26 @@ export default function Home() {
           
           <ScrollAnimation type="fade" direction="up" delay={0.6}>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-[#369CF3] hover:bg-[#369CF3]/80 text-white px-8 py-6">
+              <Button 
+                className="bg-[#369CF3] hover:bg-[#369CF3]/80 text-white px-8 py-6 relative z-20"
+                onClick={() => window.open("https://github.com/Gyaanendra/wraithos/releases/latest", "_blank")}
+              >
                 Download Now
               </Button>
-              <Button variant="outline" className="border-[#369CF3] text-[#369CF3] hover:bg-[#369CF3]/10 px-8 py-6">
+              <Button 
+                variant="outline" 
+                className="border-[#369CF3] text-[#369CF3] hover:bg-[#369CF3]/10 px-8 py-6 relative z-20"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('about');
+                  if (element) {
+                    window.scrollTo({
+                      top: element.offsetTop - 70,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+              >
                 Learn More
               </Button>
             </div>
@@ -155,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* Download Section */}
-      <section id="download" className="w-full py-20 bg-gradient-to-b from-[#050510] to-[#010102]">
+      <section id="download" className="w-full py-20 bg-gradient-to-b from-[#050510] to-[#010102] relative z-10">
         <div className="container mx-auto px-4 text-center">
           <ScrollAnimation type="fade" direction="up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -171,7 +187,7 @@ export default function Home() {
           
           <ScrollAnimation type="fade" direction="up" delay={0.4}>
             <Button className="bg-[#369CF3] hover:bg-[#369CF3]/80 text-white px-8 py-6 text-lg">
-              Download WraithOS
+              Download WraithFlash
             </Button>
           </ScrollAnimation>
           
@@ -182,6 +198,8 @@ export default function Home() {
           </ScrollAnimation>
         </div>
       </section>
+      
+      {/* And update the download button in the download section */}
     </main>
   )
 }

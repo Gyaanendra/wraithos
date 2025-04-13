@@ -5,7 +5,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: 'WraithOS - Breathe new life into old devices',
+  title: 'WraithFlash - Breathe new life into old devices',
   description: 'A lightweight, powerful operating system designed to breathe new life into old hardware.',
   generator: 'Next.js',
 }
